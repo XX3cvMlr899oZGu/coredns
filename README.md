@@ -86,3 +86,8 @@ git remote add upstream https://github.com/coredns/coredns.git
 git fetch upstream
 git merge upstream/main
 ```
+
+## Troubleshooting
+
+- **High upstream query rate:** Try increasing the `cache` TTL (e.g. `cache 120`) if your DNS responses are stable.
+- **Port already in use:** CoreDNS binds to port 53 by default. Run with `sudo` or set a custom port via the Corefile (e.g. `.:5353`).
