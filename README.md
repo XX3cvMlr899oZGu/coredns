@@ -91,3 +91,4 @@ git merge upstream/main
 
 - **High upstream query rate:** Try increasing the `cache` TTL (e.g. `cache 120`) if your DNS responses are stable.
 - **Port already in use:** CoreDNS binds to port 53 by default. Run with `sudo` or set a custom port via the Corefile (e.g. `.:5353`).
+- **Slow startup on Linux:** If CoreDNS takes a few seconds to start, check that `/etc/resolv.conf` is not pointing to `127.0.0.53` (systemd-resolved). Either disable systemd-resolved or bind CoreDNS to a different port and update the stub listener config.
