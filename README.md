@@ -40,12 +40,14 @@ docker build -t coredns:latest .
 ```
 . {
     forward . 8.8.8.8 8.8.4.4
-    cache 30
+    cache 60
     log
     errors
     health
 }
 ```
+
+> **Personal note:** I bumped the default cache TTL from 30s to 60s — found 30s caused too many repeated upstream lookups on my home network.
 
 ## Plugins
 
